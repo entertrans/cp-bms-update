@@ -25,6 +25,14 @@
 
     <!-- custome css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
+
+    <style>
+        .dropdown-menu.show{
+            width: max-content;
+            padding: 0;
+            margin-top: 18px;
+        }
+    </style>
 </head>
 
 <body>

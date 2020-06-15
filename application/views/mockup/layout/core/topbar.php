@@ -8,11 +8,6 @@
                 <div class="header-menu-wrap">
                     <ul class="dl-menu">
                         <li><a href="<?= base_url() ?>">Home</a></li>
-                        <li><a href="#">About</a>
-                            <ul>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="about-company.html">About Company</a></li>
-                            </ul>
                         </li>
                         <li><a href="#">Services</a>
                             <ul>
@@ -20,22 +15,8 @@
                                 <li><a href="services-2.html">Services 02</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Pages</a>
-                            <ul>
-                                <li><a href="projects.html">Our Projects</a></li>
-                                <li><a href="project-single.html">Project Single</a></li>
-                                <li><a href="team.html">Our Team</a></li>
-                                <li><a href="testimonial.html">Testimonial</a></li>
-                                <li><a href="404.html">404 Error</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="blog-grid.html">Blog Grid</a></li>
-                                <li><a href="blog-classic.html">Blog Classic</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="<?= site_url('project') ?>">Project</a></li>
+                        <li><a href="<?= site_url('about') ?>">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>

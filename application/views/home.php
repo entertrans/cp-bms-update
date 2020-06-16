@@ -154,7 +154,7 @@
     <div class="container">
         <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="100ms">
             <!-- <span>From Blog</span> -->
-            <h2>Materail</h2>
+            <h2>Material</h2>
         </div>
         <div class="row blog-wrap">
             <?php $data = $this->db->select('*')->from('tbl_service')->where('id_serv_desc', 1)->limit(3)->get()->result_array();
@@ -162,7 +162,7 @@
                 <div class="col-lg-4 col-sm-6 sm-padding">
                     <div class="blog-item box-shadow">
                         <div class="blog-thumb">
-                            <img src="<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>" alt="<?= $dt['nm_service'] ?>" style=" width: 400px; height: 250px">
+                            <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="<?= $dt['nm_service'] ?>" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                             <div class="middle">
                                 <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                             </div>
@@ -176,7 +176,7 @@
             <?php endforeach; ?>
         </div>
         <div class="section-heading text-center mt-40 wow fadeInUp" data-wow-delay="100ms">
-            <button type="button" class="btn btn-outline-primary btn-lg">View More</button>
+            <button type="button" class="btn btn-outline-primary btn-lg"><a href="<?= site_url('service') ?>">View More</a></button>
         </div>
     </div>
 </section>
@@ -195,7 +195,8 @@
                 <div class="col-lg-4 col-sm-6 sm-padding">
                     <div class="blog-item box-shadow">
                         <div class="blog-thumb">
-                            <img src="<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>" alt="<?= $dt['nm_service'] ?>" style="width: 400px; height: 250px">
+                            <!-- <?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>" alt="<?= $dt['nm_service'] ?> -->
+                            <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" style="width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                             <div class="middle">
                                 <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                             </div>
@@ -209,7 +210,7 @@
             <?php endforeach; ?>
         </div>
         <div class="section-heading text-center mt-40 wow fadeInUp" data-wow-delay="100ms">
-            <button type="button" class="btn btn-outline-primary btn-lg">View More</button>
+            <button type="button" class="btn btn-outline-primary btn-lg"><a href="<?= site_url('service') ?>">View More</a></button>
         </div>
     </div>
 </section>

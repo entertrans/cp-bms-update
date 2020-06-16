@@ -1,13 +1,12 @@
 <section class="widget-section padding">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 sm-padding">
+            <div class="col-lg-8 col-sm-6 sm-padding">
                 <div class="widget-content">
-                    <a href="#"><img src="<?= base_url() ?>assets/mockup/core/img/logo-light.png" alt="brand"></a>
-                    <p>Building your own home is about desire, fantasy. But it’s achievable anyone can do it.</p>
+                    <a href="#"><img style="margin-top: 30px;" src="<?= base_url() ?>assets/mockup/core/img/logo-project2.png" alt="brand"></a>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-6 sm-padding">
+            <!-- <div class="col-lg-2 col-sm-6 sm-padding">
                 <div class="widget-content">
                     <h4>Company</h4>
                     <ul class="widget-links">
@@ -17,16 +16,20 @@
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 sm-padding">
+            </div> -->
+            <div class="col-lg-4 col-sm-6 sm-padding">
                 <div class="widget-content">
-                    <h4>Headquaters</h4>
-                    <p>962 Fifth Avenue, 3rd Floor New York, NY10022</p>
-                    <span><a href="http://html.dynamiclayers.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8e0cdc4c4c7e8e9c4cdd0c9fcc0cdc5cd86c6cddc">[email&#160;protected]</a></span>
-                    <span>(+123) 456 789 101</span>
+                    <h4>Office :</h4>
+                    <p>Jl. Cilincing Baru Pangkalan Pasir No. 38 Cilincing, Jakarta Utara
+                        <br>Telp. : (021) 4494 0288 - 440 5323
+                        <br>Fax. : (021) 440 5323
+                    <br>Email : bintang.muara09@yahoo.com</p>
+
+                    <!-- <span><a href="http://html.dynamiclayers.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8e0cdc4c4c7e8e9c4cdd0c9fcc0cdc5cd86c6cddc">[email&#160;protected]</a></span>
+                    <span>(+123) 456 789 101</span> -->
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 sm-padding">
+<!--             <div class="col-lg-4 col-sm-6 sm-padding">
                 <div class="widget-content">
                     <h4>Newslatter Subscription</h4>
                     <p>Subscribe and get 10% off from our <br>architecture company.</p>
@@ -43,13 +46,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
-<footer class="footer-section align-center">
+<!-- <footer class="footer-section align-center">
     <div class="container">
-        <p><a href="templateshub.net">Templates Hub</a></p>
+        <p><a href="templateshub.net">@copyright PT.Bintang Muara Sejati</a></p>
     </div>
-</footer>
+</footer> -->
 <a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>

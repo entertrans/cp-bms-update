@@ -1,23 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Project extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+class Project extends CI_Controller
+{
 	public function index()
 	{
 		$this->load->view('mockup/layout/core/header');
@@ -25,5 +10,36 @@ class Project extends CI_Controller {
 		$this->load->view('mockup/layout/core/topbar');
 		$this->load->view('project');
 		$this->load->view('mockup/layout/core/footer');
+	}
+
+	public function find($id)
+	{
+		$data['produk'] = $this->db->get_where('tbl_service', ['id' => $id])->row_array();
+		$data['satuan'] = $this->db->get_where('tbl_service_detail', ['id_serv' => $id])->result_array();
+		echo json_encode($data);
+		exit;
+	}
+
+	public function order()
+	{
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+		$qty = $this->input->post('qty');
+		$harga = $this->input->post('harga');
+		$satuan = $this->input->post('satuan');
+		$total = $qty * $harga;
+
+		$data = array(
+			'id' => $id,
+			'qty' => $qty,
+			'price' => $total,
+			'name' => $name,
+			'options' => array('Size' => $satuan)
+		);
+
+		$this->cart->insert($data);
+
+		echo json_encode(['status' => true]);
+		exit;
 	}
 }

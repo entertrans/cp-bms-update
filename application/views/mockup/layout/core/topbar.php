@@ -2,17 +2,17 @@
     <div class="primary-header">
         <div class="container">
             <div class="primary-header-inner">
-                <div class="header-logo">
-                    <a href="#"><img src="<?= base_url() ?>/assets/mockup/core/img/logo-dark.png" alt="Indico"></a>
+                <div class="header-logo" style="max-width: 280px;">
+                    <a href="#"><img src="<?= base_url() ?>/assets/mockup/core/img/logo project-01.png" alt="Indico"></a>
                 </div>
                 <div class="header-menu-wrap">
                     <ul class="dl-menu">
                         <li><a href="<?= base_url() ?>">Home</a></li>
                         </li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="<?= site_url('service') ?>">Produk</a></li>
                         <li><a href="<?= site_url('project') ?>">Project</a></li>
                         <li><a href="<?= site_url('about') ?>">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <!-- <li><a href="contact.html">Contact</a></li> -->
                     </ul>
                 </div>
                 <div class="header-right">

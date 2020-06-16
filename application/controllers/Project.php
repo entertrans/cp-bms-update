@@ -23,7 +23,7 @@ class Project extends CI_Controller {
 		$this->load->view('mockup/layout/core/header');
 		$this->load->view('mockup/layout/core/css');
 		$this->load->view('mockup/layout/core/topbar');
-		$this->load->view('mockup/layout/core/project');
+		$this->load->view('project');
 		$this->load->view('mockup/layout/core/footer');
 	}
 }

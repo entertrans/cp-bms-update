@@ -941,7 +941,7 @@ button {
 }
 
 .service-item:hover {
-	background-color: #07a4ff;
+	/* background-color: #07a4ff; */
 	transition: all .2s ease-in-out
 }
 
@@ -950,7 +950,7 @@ button {
 .service-item:hover .overlay-icon,
 .service-item:hover p,
 .service-item:hover .read-more {
-	color: #fff;
+	/* color: #fff; */
 	transition: all .2s ease-in-out
 }
 
@@ -1029,9 +1029,9 @@ button {
 	display: block
 }
 
-.services-list .service-item:hover i {
+/* .services-list .service-item:hover i {
 	color: #fff
-}
+} */
 
 .services-list .service-item h3 {
 	margin: 0 0 5px
@@ -1152,7 +1152,7 @@ button {
 }
 
 .project-item .overlay {
-	background-color: rgba(255, 118, 7, .8);
+	/* background-color: rgba(255, 118, 7, .8); */
 	content: "";
 	position: absolute;
 	width: 100%;

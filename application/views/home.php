@@ -310,20 +310,20 @@
         });
     });
 
-    $('.hapus_cart').on('click', function() {
-        var row_id = $(this).attr('id');
-        $.ajax({
-            url: "<?= site_url('checkout/hapus_cart/') ?>" + row_id,
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                row_id: row_id
-            },
-            success: function(data){
-                location.reload();
-            }
-        });
-    });
+    // $('.hapus_cart').on('click', function() {
+    //     var row_id = $(this).attr('id');
+    //     $.ajax({
+    //         url: "<?= site_url('checkout/hapus_cart/') ?>" + row_id,
+    //         type: "POST",
+    //         dataType: "JSON",
+    //         data: {
+    //             row_id: row_id
+    //         },
+    //         success: function(data) {
+    //             location.reload();
+    //         }
+    //     });
+    // });
 
     // $('#myModal').on('click', '#calc', function() {
     //     var id = $('#idService').val();
@@ -350,6 +350,20 @@
             ribuan = reverse.match(/\d{1,3}/g);
         ribuan = ribuan.join('.').split('').reverse().join('');
         return ribuan;
+    }
+
+    function cartRemove(id) {
+        $.ajax({
+            url: "<?= site_url('checkout/hapus_cart/') ?>" + id,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                row_id: id
+            },
+            success: function(data) {
+                location.reload();
+            }
+        });
     }
 
     function cart() {

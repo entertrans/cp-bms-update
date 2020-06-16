@@ -1,6 +1,6 @@
 <!doctype html>
 
-<head>
+<head id="header">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Construction & Building HTML Template">
@@ -25,6 +25,14 @@
 
     <!-- custome css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
+
+    <style>
+        .dropdown-menu.show{
+            width: max-content;
+            padding: 0;
+            margin-top: 18px;
+        }
+    </style>
 </head>
 
 <body>

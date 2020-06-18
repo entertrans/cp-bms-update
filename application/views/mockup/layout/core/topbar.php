@@ -2,7 +2,7 @@
     <div class="primary-header">
         <div class="container">
             <div class="primary-header-inner">
-                <div class="header-logo" style="max-width: 280px;">
+                <div class="header-logo" style="max-width: 400px;">
                     <a href="#"><img src="<?= base_url() ?>/assets/mockup/core/img/logo project-01.png" alt="Indico"></a>
                 </div>
                 <div class="header-menu-wrap">

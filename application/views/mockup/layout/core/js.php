@@ -15,6 +15,22 @@
 <script src="<?= base_url() ?>assets/mockup/core/js/vendor/wow.min.js"></script>
 <script src="<?= base_url() ?>assets/mockup/core/js/main.js"></script>
 
+<script>
+    function cartRemove(id) {
+        $.ajax({
+            url: "<?= site_url('checkout/hapus_cart/') ?>" + id,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                row_id: id
+            },
+            success: function(data) {
+                location.reload();
+            }
+        });
+    }
+</script>
+
 </body>
 
 </html>

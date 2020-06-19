@@ -27,18 +27,18 @@
               <!-- <span>From Blog</span> -->
           </div>
           <div class="row blog-wrap">
-            <?php $data = $this->db->select('*')->from('tbl_service')->where('id_serv_desc', 1)->limit(6)->get()->result_array();
+            <?php $data = $this->db->select('*')->from('tbl_produk')->where('id_prod_kategori', 1)->limit(6)->get()->result_array();
             foreach ($data as $dt) : ?>
                 <div class="col-lg-4 col-sm-6 sm-padding">
                     <div class="blog-item box-shadow">
                         <div class="blog-thumb">
-                            <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="<?= $dt['nm_service'] ?>" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                            <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="<?= $dt['nm_produk'] ?>" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                             <div class="middle">
                                 <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                             </div>
                         </div>
                         <div class="blog-content">
-                            <h3><?= $dt['nm_service'] ?></h3>
+                            <h3><?= $dt['nm_produk'] ?></h3>
                             <p>[deskripsi-singkat]</p>
                         </div>
                     </div>
@@ -62,19 +62,19 @@
                 <!-- <span>From Blog</span> -->
             </div>
             <div class="row blog-wrap">
-                <?php $data = $this->db->select('*')->from('tbl_service')->where('id_serv_desc', 2)->limit(6)->get()->result_array();
+            <?php $data = $this->db->select('*')->from('tbl_produk')->where('id_prod_kategori', 2)->limit(6)->get()->result_array();
                 foreach ($data as $dt) : ?>
                     <div class="col-lg-4 col-sm-6 sm-padding">
                         <div class="blog-item box-shadow">
                             <div class="blog-thumb">
-                                <!-- <?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>" alt="<?= $dt['nm_service'] ?> -->
-                                <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" style="width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                                <!-- <?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>" alt="<?= $dt['nm_produk'] ?> -->
+                                <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" style="width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                                 <div class="middle">
                                     <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                                 </div>
                             </div>
                             <div class="blog-content">
-                                <h3><?= $dt['nm_service'] ?></h3>
+                                <h3><?= $dt['nm_produk'] ?></h3>
                                 <p>[deskripsi-singkat]</p>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
             success: function(data) {
                 var produk = data.produk;
                 var satuan = data.satuan;
-                var imgUrl = "assets/mockup/core/img/produk/" + produk.foto
+                var imgUrl = "assets/mockup/core/img/produk/" + produk.video
                 var css = {
                     'height': '200px',
                     'background-image': 'url(' + imgUrl + ')',
@@ -162,16 +162,16 @@
                     'background-size': 'cover'
                 }
 
-                // $('.modal-title').text(data.nm_service);
+                // $('.modal-title').text(data.nm_produk);
                 $('#imgWarp').css(css);
                 $('#idService').val(produk.id);
-                $('.title').text(produk.nm_service);
+                $('.title').text(produk.nm_produk);
                 // $('.harga').text('Rp. -');
                 var text = '';
                 for (var i = 0; i < satuan.length; i++) {
                     text += satuan[i].satuan + ' - Rp. ' + numberFormat(satuan[i].harga) + '<br>';
                 }
-                $('.desc').html('<p>Desc ' + produk.nm_service + '<br>' + text + '</p>');
+                $('.desc').html('<p>Desc ' + produk.nm_produk + '<br>' + text + '</p>');
 
                 var html = '';
                 for (var i = 0; i < satuan.length; i++) {
@@ -188,19 +188,19 @@
         return ribuan;
     }
 
-    function cartRemove(id) {
-        $.ajax({
-            url: "<?= site_url('checkout/hapus_cart/') ?>" + id,
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                row_id: id
-            },
-            success: function(data) {
-                location.reload();
-            }
-        });
-    }
+    // function cartRemove(id) {
+    //     $.ajax({
+    //         url: "<?= site_url('checkout/hapus_cart/') ?>" + id,
+    //         type: "POST",
+    //         dataType: "JSON",
+    //         data: {
+    //             row_id: id
+    //         },
+    //         success: function(data) {
+    //             location.reload();
+    //         }
+    //     });
+    // }
 
     function cart() {
         var id = $('#idService').val();

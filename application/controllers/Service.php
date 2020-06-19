@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Project extends CI_Controller
+class Service extends CI_Controller
 {
 	public function index()
 	{
 		$this->load->view('mockup/layout/core/header');
 		$this->load->view('mockup/layout/core/css');
 		$this->load->view('mockup/layout/core/topbar');
-		$this->load->view('project');
+		$this->load->view('service');
 		$this->load->view('mockup/layout/core/footer');
 	}
 

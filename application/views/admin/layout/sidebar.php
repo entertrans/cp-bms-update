@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
         <img src="<?= base_url('assets/admin/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">BM-Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -27,6 +27,18 @@
                                 <a href="<?= site_url('admin/beranda') ?>" class="nav-link" id="beranda">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>Beranda</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/slider') ?>" class="nav-link" id="slider">
+                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <p>Slider</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/dokumentasi') ?>" class="nav-link" id="dokumentasi">
+                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <p>Dokumentasi</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">

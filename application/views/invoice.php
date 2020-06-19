@@ -33,7 +33,7 @@
                  </div>
              </div>
              <div class="row mb-4" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;margin-bottom: 1.5rem!important;">
-                 <div class="col-sm-6 " style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;">
+                 <div class="col-sm-6 " style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;">
                      <h5 class="mb-3" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem!important;font-family: inherit;font-weight: 500;line-height: 1.2;color: inherit;font-size: 1.25rem;">Pembayaran:</h5>
                      <h3 class="text-dark mb-1" style="box-sizing: border-box;margin-top: 0;margin-bottom: .25rem!important;font-family: inherit;font-weight: 500;line-height: 1.2;color: #343a40!important;font-size: 1.75rem;orphans: 3;widows: 3;page-break-after: avoid;"><?= $payment == 'transfer' ? 'Bank Transfer' : 'Cash On Delivery' ?></h3>
                      <div style="box-sizing: border-box;"><?= $payment == 'transfer' ? $rek . ' a/n ' . $an : '' ?></div>

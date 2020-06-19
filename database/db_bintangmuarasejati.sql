@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Jun 2020 pada 14.41
--- Versi Server: 10.1.8-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Jun 19, 2020 at 08:57 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +28,7 @@ use `db_bintangmuarasejati`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_dokumentasi`
+-- Table structure for table `tbl_dokumentasi`
 --
 
 CREATE TABLE `tbl_dokumentasi` (
@@ -38,7 +40,7 @@ CREATE TABLE `tbl_dokumentasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_dokumentasi`
+-- Dumping data for table `tbl_dokumentasi`
 --
 
 INSERT INTO `tbl_dokumentasi` (`id_dokumentasi`, `thumb_dok`, `photo_dok`, `pr_from`, `pr_di`) VALUES
@@ -62,22 +64,22 @@ INSERT INTO `tbl_dokumentasi` (`id_dokumentasi`, `thumb_dok`, `photo_dok`, `pr_f
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_service`
+-- Table structure for table `tbl_produk`
 --
 
-CREATE TABLE `tbl_service` (
+CREATE TABLE `tbl_produk` (
   `id` int(11) NOT NULL,
-  `nm_service` varchar(100) NOT NULL,
+  `nm_produk` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
-  `foto` text NOT NULL,
-  `id_serv_desc` int(50) NOT NULL
+  `video` text NOT NULL,
+  `id_prod_kategori` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_service`
+-- Dumping data for table `tbl_produk`
 --
 
-INSERT INTO `tbl_service` (`id`, `nm_service`, `deskripsi`, `foto`, `id_serv_desc`) VALUES
+INSERT INTO `tbl_produk` (`id`, `nm_produk`, `deskripsi`, `video`, `id_prod_kategori`) VALUES
 (1, 'Pasir Putih Bangka', 'Pasir Putih Bangka', 'pasir-putih.jpg', 1),
 (2, 'Pasir Pantai', 'Pasir Pantai', 'pasir-pantai.jpg', 1),
 (3, 'Batu Kali', 'Batu Kali', 'batu-kali.jpg', 1),
@@ -88,40 +90,46 @@ INSERT INTO `tbl_service` (`id`, `nm_service`, `deskripsi`, `foto`, `id_serv_des
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_service_desc`
+-- Table structure for table `tbl_produk_foto`
 --
 
-CREATE TABLE `tbl_service_desc` (
-  `id_desc` int(50) NOT NULL,
-  `nm_desc` varchar(50) NOT NULL
+CREATE TABLE `tbl_produk_foto` (
+  `id_foto` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `nm_foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_service_desc`
+-- Dumping data for table `tbl_produk_foto`
 --
 
-INSERT INTO `tbl_service_desc` (`id_desc`, `nm_desc`) VALUES
-(1, 'Produk'),
-(2, 'Jasa');
+INSERT INTO `tbl_produk_foto` (`id_foto`, `id_produk`, `nm_foto`) VALUES
+(1, 1, 'pasir-putih.jpg'),
+(2, 1, 'pasir-pantai.jpg'),
+(3, 2, 'pasir-pantai.jpg'),
+(4, 3, 'batu-kali.jpg'),
+(5, 4, 'batu-split.jpg'),
+(6, 5, 'crane.jpg'),
+(7, 6, 'truck.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_service_detail`
+-- Table structure for table `tbl_produk_harga`
 --
 
-CREATE TABLE `tbl_service_detail` (
+CREATE TABLE `tbl_produk_harga` (
   `id` int(11) NOT NULL,
-  `id_serv` int(11) NOT NULL,
+  `id_prod` int(11) NOT NULL,
   `satuan` varchar(50) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_service_detail`
+-- Dumping data for table `tbl_produk_harga`
 --
 
-INSERT INTO `tbl_service_detail` (`id`, `id_serv`, `satuan`, `harga`) VALUES
+INSERT INTO `tbl_produk_harga` (`id`, `id_prod`, `satuan`, `harga`) VALUES
 (1, 2, 'Kubik', 260000),
 (2, 2, 'Pick Up', 560000),
 (3, 2, 'Truck', 1340000),
@@ -138,7 +146,26 @@ INSERT INTO `tbl_service_detail` (`id`, `id_serv`, `satuan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_slider`
+-- Table structure for table `tbl_produk_kategori`
+--
+
+CREATE TABLE `tbl_produk_kategori` (
+  `id_desc` int(50) NOT NULL,
+  `nm_desc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_produk_kategori`
+--
+
+INSERT INTO `tbl_produk_kategori` (`id_desc`, `nm_desc`) VALUES
+(1, 'Material'),
+(2, 'Kontraktor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -151,7 +178,7 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_slider`
+-- Dumping data for table `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`id_slider`, `photo_slider`, `kt_slider`, `judul_slider`, `desc_slider`, `aktifkan`) VALUES
@@ -169,22 +196,28 @@ ALTER TABLE `tbl_dokumentasi`
   ADD PRIMARY KEY (`id_dokumentasi`);
 
 --
--- Indexes for table `tbl_service`
+-- Indexes for table `tbl_produk`
 --
-ALTER TABLE `tbl_service`
+ALTER TABLE `tbl_produk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_service_desc`
+-- Indexes for table `tbl_produk_foto`
 --
-ALTER TABLE `tbl_service_desc`
+ALTER TABLE `tbl_produk_foto`
+  ADD PRIMARY KEY (`id_foto`);
+
+--
+-- Indexes for table `tbl_produk_harga`
+--
+ALTER TABLE `tbl_produk_harga`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_produk_kategori`
+--
+ALTER TABLE `tbl_produk_kategori`
   ADD PRIMARY KEY (`id_desc`);
-
---
--- Indexes for table `tbl_service_detail`
---
-ALTER TABLE `tbl_service_detail`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_slider`
@@ -201,26 +234,38 @@ ALTER TABLE `tbl_slider`
 --
 ALTER TABLE `tbl_dokumentasi`
   MODIFY `id_dokumentasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
--- AUTO_INCREMENT for table `tbl_service`
+-- AUTO_INCREMENT for table `tbl_produk`
 --
-ALTER TABLE `tbl_service`
+ALTER TABLE `tbl_produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT for table `tbl_service_desc`
+-- AUTO_INCREMENT for table `tbl_produk_foto`
 --
-ALTER TABLE `tbl_service_desc`
-  MODIFY `id_desc` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tbl_produk_foto`
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
--- AUTO_INCREMENT for table `tbl_service_detail`
+-- AUTO_INCREMENT for table `tbl_produk_harga`
 --
-ALTER TABLE `tbl_service_detail`
+ALTER TABLE `tbl_produk_harga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tbl_produk_kategori`
+--
+ALTER TABLE `tbl_produk_kategori`
+  MODIFY `id_desc` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `id_slider` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

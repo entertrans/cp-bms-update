@@ -116,7 +116,9 @@
             <h2>Material</h2>
         </div>
         <div class="row blog-wrap">
-            <?php $data = $this->db->select('*')->from('tbl_produk')->where('id_prod_kategori', 1)->limit(3)->get()->result_array();
+            <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 1 limit 3";
+            // $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id_prod_kategori' => 1]);
+            $data = $this->db->query($qry)->result_array();
             foreach ($data as $dt) : ?>
                 <div class="col-lg-4 col-sm-6 sm-padding">
                     <div class="blog-item box-shadow">
@@ -149,7 +151,9 @@
             <h2>Jasa Konstruksi</h2>
         </div>
         <div class="row blog-wrap">
-        <?php $data = $this->db->select('*')->from('tbl_produk')->where('id_prod_kategori', 2)->limit(3)->get()->result_array();
+            <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 2 limit 3";
+            // $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id_prod_kategori' => 2]);
+            $data = $this->db->query($qry)->result_array();
             foreach ($data as $dt) : ?>
                 <div class="col-lg-4 col-sm-6 sm-padding">
                     <div class="blog-item box-shadow">

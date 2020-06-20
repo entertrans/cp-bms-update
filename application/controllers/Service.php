@@ -14,27 +14,27 @@ class Service extends CI_Controller
 
 	public function find($id)
 	{
-		$data['produk'] = $this->db->get_where('tbl_service', ['id' => $id])->row_array();
-		$data['satuan'] = $this->db->get_where('tbl_service_detail', ['id_serv' => $id])->result_array();
+		$data['produk'] = $this->db->get_where('tbl_produk', ['id' => $id])->row_array();
+		$data['satuan'] = $this->db->get_where('tbl_produk_harga', ['id_prod' => $id])->result_array();
 		echo json_encode($data);
 		exit;
 	}
 
 	public function order()
 	{
-		$id = $this->input->post('id');
-		$name = $this->input->post('name');
-		$qty = $this->input->post('qty');
-		$harga = $this->input->post('harga');
-		$satuan = $this->input->post('satuan');
-		$total = $qty * $harga;
+		$id = $this->input->post('id_prod');
+		$name = $this->input->post('nm_prod');
+		$qty = $this->input->post('qty_order');
+		$unit = $this->input->post('unit_order');
+		$harga = $this->db->get_where('tbl_produk_harga', ['id_prod' => $id, 'satuan' => $unit])->row_array();
+		$total = $qty * $harga['harga'];
 
 		$data = array(
 			'id' => $id,
 			'qty' => $qty,
 			'price' => $total,
 			'name' => $name,
-			'options' => array('Size' => $satuan)
+			'options' => array('Size' => $unit)
 		);
 
 		$this->cart->insert($data);

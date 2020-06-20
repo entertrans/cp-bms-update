@@ -16,6 +16,8 @@
 <script src="<?= base_url() ?>assets/mockup/core/js/vendor/wow.min.js"></script>
 <script src="<?= base_url() ?>assets/mockup/core/js/main.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
 <script>
     function cartRemove(id) {
         $.ajax({

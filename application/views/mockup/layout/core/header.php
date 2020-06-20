@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/main.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/responsive.css">
 
+    <!-- SweetAlert2 -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- custome css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
 

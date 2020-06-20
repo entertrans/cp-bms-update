@@ -11,7 +11,7 @@
         <div class="row mb-5">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted" style="background-color: red">Your cart</span>
+                    <span class="text-muted">Your cart</span>
 
                     <span class="badge badge-danger badge-pill"><?= count($cart) ?></span>
                 </h4>
@@ -21,7 +21,7 @@
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
                                 <h6 class="my-0"><?= $item['name'] ?></h6>
-                                <!-- <small class="text-muted">Brief description</small> -->
+                                <small class="text-muted"><?= $item['qty'] . ' ' . $item['options']['Size'] ?></small>
                             </div>
                             <span class="text-muted"><?= number_format($item['price'], 0, ',', '.') ?></span>
                         </li>

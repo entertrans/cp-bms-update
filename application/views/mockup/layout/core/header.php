@@ -26,13 +26,39 @@
     <!-- custome css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
     <style>
         .dropdown-menu.show{
             width: max-content;
             padding: 0;
             margin-top: 18px;
         }
-    </style>
+
+        .items {
+           width: 90%;
+           margin: 0px auto;
+           margin-top: 100px
+       }
+
+       .slick-slide {
+           margin: 10px
+       }
+
+       .slick-slide img {
+           width: 100%;
+           border: 0px solid #fff
+       }
+       .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus{
+        background-color: white;
+        color: red;
+       }
+       .slick-prev::before, .slick-next::before{
+         background-color: white;
+        color: red;
+       }
+   </style>
 </head>
 
 <body>

@@ -214,6 +214,18 @@
         </div>
     </div>
 </section>
+
+<div class="blog-section padding">
+    <div class="items">
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190715/gallery/preview/03_r_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></div>
+        <div><img data-lazy="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></div>
+    </div>
+</div>
 <!-- ./jasa konstruksi -->
 
 <!-- The Modal -->
@@ -267,10 +279,23 @@
 
         </div>
     </div>
+
 </div>
 
-<?php $this->load->view('mockup/layout/core/js'); ?>
 
+
+<?php $this->load->view('mockup/layout/core/js'); ?>
+<script>
+    $(document).ready(function(){
+
+        $('.items').slick({
+            infinite: true,
+            lazyLoad: 'ondemand',
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+    });
+</script>
 <script>
     $('.view').on('click', function() {
         var id = $(this).data('id');
@@ -348,7 +373,7 @@
 
     function numberFormat(bilangan) {
         reverse = bilangan.toString().split('').reverse().join(''),
-            ribuan = reverse.match(/\d{1,3}/g);
+        ribuan = reverse.match(/\d{1,3}/g);
         ribuan = ribuan.join('.').split('').reverse().join('');
         return ribuan;
     }

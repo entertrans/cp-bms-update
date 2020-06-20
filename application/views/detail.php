@@ -130,16 +130,34 @@
 <script>
     $("#form_order").submit(function(e) {
         e.preventDefault();
-        console.log($(this).serialize());
+        // console.log($(this).serialize());
 
         $.ajax({
             url: "<?= site_url('service/order') ?>",
             type: $(this).attr('method'),
+            dataType: "JSON",
             data: $(this).serialize(),
             success: function(result) {
-                if (result) {
-                    alert('Pesanan berhasil');
-                    location.reload();
+                if (result.status == true) {
+                    swal({
+                            title: "Pesanan berhasil disimpan",
+                            text: "Apakah anda ingin melanjutkan belaja lagi?",
+                            icon: "success",
+                            buttons: {
+                                cancel: "Tidak",
+                                confirm: "Tentu Saja",
+                            },
+                            dangerMode: false,
+                        })
+                        .then((isConfirm) => {
+                            if (isConfirm) {
+                                window.location.href = '<?= base_url() ?>';
+                            } else {
+                                $('#form_order')[0].reset();
+                            }
+                        });
+                } else {
+                    swal("Kesalahan!", "Qty produk belum ditambahkan", "error");
                 }
             }
         });

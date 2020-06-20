@@ -27,10 +27,14 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
 
     <style>
-        .dropdown-menu.show{
+        .dropdown-menu.show {
             width: max-content;
             padding: 0;
             margin-top: 18px;
+        }
+
+        .img-thumbnail {
+            height: 100px;
         }
     </style>
 </head>

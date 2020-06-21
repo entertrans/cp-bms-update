@@ -186,4 +186,100 @@
         var id = $(this).data('id');
         window.location.href = "<?= site_url('detail/view/') ?>" + id;
     });
+
+    // $('.hapus_cart').on('click', function() {
+    //     var row_id = $(this).attr('id');
+    //     $.ajax({
+    //         url: "<?= site_url('checkout/hapus_cart/') ?>" + row_id,
+    //         type: "POST",
+    //         dataType: "JSON",
+    //         data: {
+    //             row_id: row_id
+    //         },
+    //         success: function(data) {
+    //             location.reload();
+    //         }
+    //     });
+    // });
+
+    // $('#myModal').on('click', '#calc', function() {
+    //     var id = $('#idService').val();
+    //     var harga = $(this).val();
+    //     var qty = $('#qty').val();
+    //     var calc = harga * qty;
+
+    //     $('.harga').text('Rp. ' + calc);
+
+    //     var data = {
+    //         'id': id,
+    //         'qty': qty,
+    //         'harga': harga,
+    //         'total': calc
+    //     };
+
+    //     $('#cart').on('click', function() {
+    //         cart(data);
+    //     });
+    // });
+
+    function numberFormat(bilangan) {
+        reverse = bilangan.toString().split('').reverse().join(''),
+        ribuan = reverse.match(/\d{1,3}/g);
+        ribuan = ribuan.join('.').split('').reverse().join('');
+        return ribuan;
+    }
+
+    function cartRemove(id) {
+        $.ajax({
+            url: "<?= site_url('checkout/hapus_cart/') ?>" + id,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                row_id: id
+            },
+            success: function(data) {
+                location.reload();
+            }
+        });
+    }
+
+    function cart() {
+        var id = $('#idService').val();
+        var name = $('.title').text();
+        var harga = $('#satuan').val();
+        var satuan = $('#satuan option:selected').text();
+        var qty = $('#qty').val();
+
+        if (qty < 1) {
+            alert('Harap masukan jumlah Qty');
+            return;
+        } else {
+            var data = {
+                'id': id,
+                'qty': qty,
+                'name': name,
+                'harga': harga,
+                'satuan': satuan
+            };
+        }
+        // console.log(data);
+
+        $.ajax({
+            url: "<?= site_url('welcome/order') ?>",
+            type: "POST",
+            dataType: "JSON",
+            data: data,
+            success: function(data) {
+                if (data.status) {
+                    alert('Data berhasil ditambahkan ke keranjang');
+                    $('#myModal').modal('hide');
+                    $('#formOrder')[0].reset();
+                    location.reload();
+
+                } else {
+                    alert('Data tidak berhasil ditambahkan ke keranjang');
+                }
+            }
+        });
+    }
 </script>

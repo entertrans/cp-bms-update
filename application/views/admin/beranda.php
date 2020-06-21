@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">Menu Admin</div>
                         <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate consectetur voluptates, aperiam nemo eos eaque. Cumque, nulla, nam corporis autem ut eligendi explicabo eum, alias molestiae vel impedit. Atque, ipsum.
+                           Selamat Datang Admin
                         </div>
                     </div>
                     

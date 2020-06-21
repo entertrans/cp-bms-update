@@ -14,7 +14,7 @@ class Detail extends CI_Controller
         $data = array(
             'detail' => $this->m_detail->find($id),
             'harga' => $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_harga b', 'a.id = b.id_prod', 'left')->where(['a.id' => $id])->get(),
-            'foto' => $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id' => $id])->get()
+            'foto' => $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id' => $id])->get()->result_array()
         );
 
         // var_dump($data); exit;

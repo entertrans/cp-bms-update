@@ -10,14 +10,14 @@
             <div class="col-lg-8 col-sm-8 pb-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/qKFrZuQucjE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="display">
+                            <img src="<?= base_url('assets/mockup/core/img/produk/') . $foto[0]['nm_foto'] ?>" style="height: 380px">
                         </div>
 
                         <div class="row pt-2">
-                            <?php foreach ($foto->result_array() as $ft) : ?>
+                            <?php foreach ($foto as $ft) : ?>
                                 <div class="col-sm-2 pr-1">
-                                    <img src="<?= base_url('assets/mockup/core/img/produk/') . $ft['nm_foto'] ?>" class="img-thumbnail" title="View Image" style="cursor: pointer;">
+                                    <img src="<?= base_url('assets/mockup/core/img/produk/') . $ft['nm_foto'] ?>" class="img-thumbnail" data-file="<?= $ft['nm_foto'] ?>" style="cursor: pointer;">
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -110,7 +110,7 @@
 </section> -->
 
 <!-- Modal -->
-<div class="modal fade in" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="modalImageTitle" aria-hidden="true">
+<!-- <div class="modal fade in" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="modalImageTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -123,32 +123,68 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <?php $this->load->view('mockup/layout/core/js'); ?>
 
 <script>
     $("#form_order").submit(function(e) {
         e.preventDefault();
-        console.log($(this).serialize());
+        // console.log($(this).serialize());
 
         $.ajax({
             url: "<?= site_url('service/order') ?>",
             type: $(this).attr('method'),
+            dataType: "JSON",
             data: $(this).serialize(),
             success: function(result) {
-                if (result) {
-                    alert('Pesanan berhasil');
-                    location.reload();
+                if (result.status == true) {
+                    swal({
+                            title: "Pesanan berhasil disimpan",
+                            text: "Apakah anda ingin melanjutkan belaja lagi?",
+                            icon: "success",
+                            buttons: {
+                                cancel: "Tidak",
+                                confirm: "Tentu Saja",
+                            },
+                            dangerMode: false,
+                        })
+                        .then((isConfirm) => {
+                            if (isConfirm) {
+                                window.location.href = '<?= base_url() ?>';
+                            } else {
+                                $('#form_order')[0].reset();
+                                location.reload();
+                            }
+                        });
+                } else {
+                    swal("Kesalahan!", "Qty produk belum ditambahkan", "error");
                 }
             }
         });
     });
 
     $('img').on('click', function() {
-        $('#modalImage').modal('show');
-        $('.modal-title').text('<?= $detail['nm_produk'] ?>');
-        var img = $(this).attr('src');
-        $('.modal-body').html('<img src="' + img + '" style="height: 500px;">');
+        var file = $(this).data('file');
+        var video = "<?= $detail['video'] ?>";
+        var filename = file.split('.');
+        var videoname = video.split('.');
+
+        $.ajax({
+            url: "<?= base_url('assets/mockup/core/video/') ?>" + video,
+            type: "HEAD",
+            success: function() {
+                if (filename[0] == videoname[0]) {
+                    $('.display').html(`<div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" width="560" height="315" src="<?= base_url('assets/mockup/core/video/') ?>` + video + `" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>`);
+                } else {
+                    $('.display').html(`<img src="<?= base_url('assets/mockup/core/img/produk/') ?>` + file + `" style="height: 380px">`);
+                }
+            },
+            error: function() {
+                $('.display').html(`<img src="<?= base_url('assets/mockup/core/img/produk/') ?>` + file + `" style="height: 380px">`);
+            }
+        });
     });
 </script>

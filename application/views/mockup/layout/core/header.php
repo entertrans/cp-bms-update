@@ -23,18 +23,24 @@
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/main.css">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/responsive.css">
 
-
   <!-- lightbox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
   <!-- custome css -->
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
+  <!-- SweetAlert2 -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <style>
-    .dropdown-menu.show{
+    .dropdown-menu.show {
       width: max-content;
       padding: 0;
       margin-top: 18px;
-    }
-  </style>
+     }
+
+     .img-thumbnail {
+       height: 100px;
+     }
+    </style>
 </head>
 
 <body>

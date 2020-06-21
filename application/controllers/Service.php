@@ -22,17 +22,17 @@ class Service extends CI_Controller
 
 	public function order()
 	{
+		$sess_id = $this->input->ip_address();
 		$id = $this->input->post('id_prod');
 		$name = $this->input->post('nm_prod');
 		$qty = $this->input->post('qty_order');
 		$unit = $this->input->post('unit_order');
 		$harga = $this->db->get_where('tbl_produk_harga', ['id_prod' => $id, 'satuan' => $unit])->row_array();
-		$total = $qty * $harga['harga'];
 
 		$data = array(
 			'id' => $id,
 			'qty' => $qty,
-			'price' => $total,
+			'price' => $harga['harga'],
 			'name' => $name,
 			'options' => array('Size' => $unit)
 		);

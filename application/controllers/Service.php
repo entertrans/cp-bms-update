@@ -42,4 +42,12 @@ class Service extends CI_Controller
 		echo json_encode(['status' => true]);
 		exit;
 	}
+
+	public function list_produk($id_prod, $counter)
+	{
+		$qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = " . $id_prod . " limit " . $counter . "";
+		$list = $this->db->query($qry)->result_array();
+
+		echo json_encode($list); exit;
+	}
 }

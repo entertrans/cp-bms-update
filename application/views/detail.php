@@ -139,24 +139,14 @@
             data: $(this).serialize(),
             success: function(result) {
                 if (result.status == true) {
-                    swal({
-                            title: "Pesanan berhasil disimpan",
-                            text: "Apakah anda ingin melanjutkan belaja lagi?",
-                            icon: "success",
-                            buttons: {
-                                cancel: "Tidak",
-                                confirm: "Tentu Saja",
-                            },
-                            dangerMode: false,
-                        })
-                        .then((isConfirm) => {
-                            if (isConfirm) {
-                                window.location.href = '<?= base_url() ?>';
-                            } else {
-                                $('#form_order')[0].reset();
-                                location.reload();
-                            }
-                        });
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pesanan berhasil disimpan',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(function(){
+                        location.reload();
+                    })
                 } else {
                     swal("Kesalahan!", "Qty produk belum ditambahkan", "error");
                 }

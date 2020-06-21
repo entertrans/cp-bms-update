@@ -31,14 +31,14 @@
                         <!-- <span>From Blog</span> -->
                     </div>
                     <div class="row blog-wrap">
-                        <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 1";
+                        <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 1 limit 3";
                         // $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id_prod_kategori' => 1]);
                         $data = $this->db->query($qry)->result_array();
                         foreach ($data as $dt) : ?>
-                            <div class="col-lg-4 col-sm-6 p-3">
+                            <div class="col-lg-4 col-sm-6 sm-padding">
                                 <div class="blog-item box-shadow">
                                     <div class="blog-thumb">
-                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="<?= $dt['nm_produk'] ?>" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="<?= $dt['nm_produk'] ?>" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['nm_foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                                         <div class="middle">
                                             <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                                         </div>
@@ -68,15 +68,15 @@
                         <!-- <span>From Blog</span> -->
                     </div>
                     <div class="row blog-wrap">
-                        <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 2";
+                        <?php $qry = "select * from tbl_produk a inner join (select * from tbl_produk_foto group by id_produk) b on a.id = b.id_produk where a.id_prod_kategori = 2 limit 3";
                         // $this->db->select('*')->from('tbl_produk a')->join('tbl_produk_foto b', 'a.id = b.id_produk', 'left')->where(['a.id_prod_kategori' => 2]);
                         $data = $this->db->query($qry)->result_array();
                         foreach ($data as $dt) : ?>
-                            <div class="col-lg-4 col-sm-6 p-3">
+                            <div class="col-lg-4 col-sm-6 sm-padding">
                                 <div class="blog-item box-shadow">
                                     <div class="blog-thumb">
                                         <!-- <?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>" alt="<?= $dt['nm_produk'] ?> -->
-                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" style="width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['video'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" style="width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') . $dt['nm_foto'] ?>);background-repeat: no-repeat;background-size: cover;background-position: center;">
                                         <div class="middle">
                                             <div class="btn btn-outline-primary btn-lg view" data-id="<?= $dt['id'] ?>"><i class="fa fa-fw fa-eye"></i></div>
                                         </div>

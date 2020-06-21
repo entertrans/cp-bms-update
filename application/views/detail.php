@@ -154,6 +154,7 @@
                                 window.location.href = '<?= base_url() ?>';
                             } else {
                                 $('#form_order')[0].reset();
+                                location.reload();
                             }
                         });
                 } else {

@@ -22,17 +22,23 @@
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/owl.carousel.css">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/main.css">
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/css/responsive.css">
-
+  <!-- SweetAlert -->
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/admin/plugins/sweetalert2/sweetalert2.min.css">
 
   <!-- lightbox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
   <!-- custome css -->
   <link rel="stylesheet" href="<?= base_url(); ?>assets/mockup/core/dist/css/mycss.css">
+
   <style>
-    .dropdown-menu.show{
+    .dropdown-menu.show {
       width: max-content;
       padding: 0;
       margin-top: 18px;
+    }
+
+    .img-thumbnail {
+      height: 100px;
     }
   </style>
 </head>

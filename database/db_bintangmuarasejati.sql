@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2020 at 08:57 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: 22 Jun 2020 pada 15.12
+-- Versi Server: 10.1.8-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,50 +19,66 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_bintangmuarasejati`
 --
-drop database if exists `db_bintangmuarasejati`;
-create database `db_bintangmuarasejati`;
-use `db_bintangmuarasejati`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_dokumentasi`
+-- Struktur dari tabel `tbl_admin`
+--
+
+CREATE TABLE `tbl_admin` (
+  `id_admin` int(50) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `hak_akses` tinyint(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`id_admin`, `user`, `password`, `hak_akses`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_dokumentasi`
 --
 
 CREATE TABLE `tbl_dokumentasi` (
   `id_dokumentasi` int(50) NOT NULL,
-  `thumb_dok` varchar(50) NOT NULL,
   `photo_dok` varchar(50) NOT NULL,
-  `pr_from` varchar(50) NOT NULL,
-  `pr_di` varchar(50) NOT NULL
+  `pr_title` varchar(50) NOT NULL,
+  `pr_desc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_dokumentasi`
+-- Dumping data untuk tabel `tbl_dokumentasi`
 --
 
-INSERT INTO `tbl_dokumentasi` (`id_dokumentasi`, `thumb_dok`, `photo_dok`, `pr_from`, `pr_di`) VALUES
-(0, 'photo9-thumb.jpg', 'photo9.jpg', 'pt.abc', 'pulau seribu'),
-(1, 'photo1-thumb.jpg', 'photo1.jpg', 'pt.abc', 'pulau seribu'),
-(2, 'photo2-thumb.jpg', 'photo2.jpg', 'pt.abc', 'pulau seribu'),
-(3, 'photo3-thumb.jpg', 'photo3.jpg', 'pt.abc', 'pulau seribu'),
-(4, 'photo4-thumb.jpg', 'photo4.jpg', 'pt.abc', 'pulau seribu'),
-(5, 'photo5-thumb.jpg', 'photo5.jpg', 'pt.abc', 'pulau seribu'),
-(6, 'photo6-thumb.jpg', 'photo6.jpg', 'pt.abc', 'pulau seribu'),
-(7, 'photo7-thumb.jpg', 'photo7.jpg', 'pt.abc', 'pulau seribu'),
-(21, 'photo8-thumb.jpg', 'photo8.jpg', 'pt.abc', 'pulau seribu'),
-(22, 'photo9-thumb.jpg', 'photo9.jpg', 'pt.abc', 'pulau seribu'),
-(23, 'photo10-thumb.jpg', 'photo10.jpg', 'pt.abc', 'pulau seribu'),
-(24, 'photo11-thumb.jpg', 'photo11.jpg', 'pt.abc', 'pulau seribu'),
-(25, 'photo12-thumb.jpg', 'photo12.jpg', 'pt.abc', 'pulau seribu'),
-(26, 'photo13-thumb.jpg', 'photo13.jpg', 'pt.abc', 'pulau seribu'),
-(27, 'photo14-thumb.jpg', 'photo14.jpg', 'pt.abc', 'pulau seribu'),
-(28, 'photo15-thumb.jpg', 'photo15.jpg', 'pt.abc', 'pulau seribu');
+INSERT INTO `tbl_dokumentasi` (`id_dokumentasi`, `photo_dok`, `pr_title`, `pr_desc`) VALUES
+(0, 'photo9.jpg', 'pt.abc', 'pulau seribu'),
+(1, 'photo1.jpg', 'pt.abc', 'pulau seribu'),
+(2, 'photo2.jpg', 'pt.abc', 'pulau seribu'),
+(3, 'photo3.jpg', 'pt.abc', 'pulau seribu'),
+(4, 'photo4.jpg', 'pt.abc', 'pulau seribu'),
+(5, 'photo5.jpg', 'pt.abc', 'pulau seribu'),
+(6, 'photo6.jpg', 'pt.abc', 'pulau seribu'),
+(7, 'photo7.jpg', 'pt.abc', 'pulau seribu'),
+(21, 'photo8.jpg', 'pt.abc', 'pulau seribu'),
+(22, 'photo9.jpg', 'pt.abc', 'pulau seribu'),
+(23, 'photo10.jpg', 'pt.abc', 'pulau seribu'),
+(24, 'photo11.jpg', 'pt.abc', 'pulau seribu'),
+(25, 'photo12.jpg', 'pt.abc', 'pulau seribu'),
+(26, 'photo13.jpg', 'pt.abc', 'pulau seribu'),
+(27, 'photo14.jpg', 'pt.abc', 'pulau seribu'),
+(28, 'photo15.jpg', 'pt.abc', 'pulau seribu');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk`
+-- Struktur dari tabel `tbl_produk`
 --
 
 CREATE TABLE `tbl_produk` (
@@ -76,7 +90,7 @@ CREATE TABLE `tbl_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_produk`
+-- Dumping data untuk tabel `tbl_produk`
 --
 
 INSERT INTO `tbl_produk` (`id`, `nm_produk`, `deskripsi`, `video`, `id_prod_kategori`) VALUES
@@ -90,7 +104,7 @@ INSERT INTO `tbl_produk` (`id`, `nm_produk`, `deskripsi`, `video`, `id_prod_kate
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk_foto`
+-- Struktur dari tabel `tbl_produk_foto`
 --
 
 CREATE TABLE `tbl_produk_foto` (
@@ -100,7 +114,7 @@ CREATE TABLE `tbl_produk_foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_produk_foto`
+-- Dumping data untuk tabel `tbl_produk_foto`
 --
 
 INSERT INTO `tbl_produk_foto` (`id_foto`, `id_produk`, `nm_foto`) VALUES
@@ -115,7 +129,7 @@ INSERT INTO `tbl_produk_foto` (`id_foto`, `id_produk`, `nm_foto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk_harga`
+-- Struktur dari tabel `tbl_produk_harga`
 --
 
 CREATE TABLE `tbl_produk_harga` (
@@ -126,7 +140,7 @@ CREATE TABLE `tbl_produk_harga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_produk_harga`
+-- Dumping data untuk tabel `tbl_produk_harga`
 --
 
 INSERT INTO `tbl_produk_harga` (`id`, `id_prod`, `satuan`, `harga`) VALUES
@@ -146,7 +160,7 @@ INSERT INTO `tbl_produk_harga` (`id`, `id_prod`, `satuan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk_kategori`
+-- Struktur dari tabel `tbl_produk_kategori`
 --
 
 CREATE TABLE `tbl_produk_kategori` (
@@ -155,7 +169,7 @@ CREATE TABLE `tbl_produk_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_produk_kategori`
+-- Dumping data untuk tabel `tbl_produk_kategori`
 --
 
 INSERT INTO `tbl_produk_kategori` (`id_desc`, `nm_desc`) VALUES
@@ -165,7 +179,7 @@ INSERT INTO `tbl_produk_kategori` (`id_desc`, `nm_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slider`
+-- Struktur dari tabel `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -174,20 +188,49 @@ CREATE TABLE `tbl_slider` (
   `kt_slider` varchar(50) NOT NULL,
   `judul_slider` varchar(50) NOT NULL,
   `desc_slider` text NOT NULL,
-  `aktifkan` int(2) NOT NULL
+  `aktifkan` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_slider`
+-- Dumping data untuk tabel `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`id_slider`, `photo_slider`, `kt_slider`, `judul_slider`, `desc_slider`, `aktifkan`) VALUES
-(1, 'slider-1.jpg', 'Residencial', 'We provide outstanding construction services', 'We have provided complete remodeling and construction solutions for residential and commercial properties in cities', 0),
-(2, 'slider-2.jpg', 'Residencial', 'We will be happy to take care of your construc', 'We have provided complete remodeling and construction solutions for residential and commercial properties in cities', 0);
+(1, 'slider-1.jpg', 'Residencial', 'We provide outstanding construction services', 'We have provided complete remodeling and construction solutions for residential and commercial properties in cities', 1),
+(2, 'slider-2.jpg', 'Residencial', 'We will be happy to take care of your construc', 'We have provided complete remodeling and construction solutions for residential and commercial properties in cities', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_testimonial`
+--
+
+CREATE TABLE `tbl_testimonial` (
+  `id_testimonial` int(255) NOT NULL,
+  `photo_testi` varchar(50) NOT NULL,
+  `nm_testi` varchar(50) NOT NULL,
+  `jbt_testi` varchar(50) NOT NULL,
+  `desc_testi` text NOT NULL,
+  `bintang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_testimonial`
+--
+
+INSERT INTO `tbl_testimonial` (`id_testimonial`, `photo_testi`, `nm_testi`, `jbt_testi`, `desc_testi`, `bintang`) VALUES
+(1, 'testi-2.jpg', 'Valentin Lacoste', 'direktur', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, porro quas quos deleniti dolorum laudantium expedita est, officiis magnam. Praesentium error eos saepe voluptates blanditiis modi quae in, et fugiat.', 4),
+(2, 'testi-1.jpg', 'Valentin Lacoste2', 'direktur', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, porro quas quos deleniti dolorum laudantium expedita est, officiis magnam. Praesentium error eos saepe voluptates blanditiis modi quae in, et fugiat.', 3);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `tbl_dokumentasi`
@@ -226,46 +269,55 @@ ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`id_slider`);
 
 --
+-- Indexes for table `tbl_testimonial`
+--
+ALTER TABLE `tbl_testimonial`
+  ADD PRIMARY KEY (`id_testimonial`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  MODIFY `id_admin` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_dokumentasi`
 --
 ALTER TABLE `tbl_dokumentasi`
   MODIFY `id_dokumentasi` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
 --
 -- AUTO_INCREMENT for table `tbl_produk`
 --
 ALTER TABLE `tbl_produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `tbl_produk_foto`
 --
 ALTER TABLE `tbl_produk_foto`
   MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `tbl_produk_harga`
 --
 ALTER TABLE `tbl_produk_harga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `tbl_produk_kategori`
 --
 ALTER TABLE `tbl_produk_kategori`
   MODIFY `id_desc` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `id_slider` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
+--
+-- AUTO_INCREMENT for table `tbl_testimonial`
+--
+ALTER TABLE `tbl_testimonial`
+  MODIFY `id_testimonial` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

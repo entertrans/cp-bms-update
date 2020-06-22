@@ -21,13 +21,16 @@
                 <div class="user-panel d-flex">
                     <p><?= $this->session->userdata('user'); ?></p>
                     <div class="image">
-                        <img src="<?php echo base_url().'assets/mockup/core/img/logo.jpeg'?>" class="img-circle elevation-1" alt="User Image">
+                        <img src="<?= base_url('assets/mockup/core/img/logo.jpeg')?>" class="img-circle elevation-1" alt="User Image">
                     </div>
                 </div>
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right mt-2">
+            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> Profile
+                </a>
                 <div class="dropdown-divider"></div>
-                <a href="<?php echo base_url().'admin/login/logout'?>" class="dropdown-item">
+                <a href="<?= base_url('admin/login/logout') ?>" class="dropdown-item">
                     <i class="fas fa-power-off mr-2"></i> Logout
                 </a>
             </div>

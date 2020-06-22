@@ -33,23 +33,28 @@
                             <table id="tbl_campaign" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="20px">#</th>
-                                        <th width="80px">Photo</th>
-                                        <th>Dokumentasi title</th>
-                                        <th>Dokumentasi deskripsi</th>
-                                        <th>Aksi</th>
+                                        <th>#</th>
+                                        <th>Photo Dokumentasi</th>
+                                        <th>Detail Dokumentasi</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach ($dokumentasi as $dt) { ?>
                                         <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td width="80px"><img class="img-fluid img-thumbnail" src="<?= base_url('assets/mockup/core/img/dokumentasi/') . $dt['photo_dok'] ?>" alt="<?= $dt['photo_dok'] ?>">
+                                            <td width="20px"><?= $no++ ?></td>
+                                            <td class="text-center" style="width: 20%;"><img class="img-fluid img-thumbnail" style="cursor: pointer;" src="<?= base_url('assets/mockup/core/img/dokumentasi/') . $dt['photo_dok'] ?>" alt="<?= $dt['pr_title'] ?>" width="100px" height="50px">
                                             </td>
-                                            <td><?= $dt['pr_title'] ?></td>
-                                            <td><?= $dt['pr_desc'] ?></td>
-                                            <td><span><a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapusDokumentasi<?= $dt['id_dokumentasi'] ?>">Hapus</a></span></td>
+                                            <td>
+                                                <?= $dt['pr_title'] ?>
+                                                <div class="dropdown-divider"></div>
+                                                <?= $dt['pr_desc'] ?>
+                                            </td>
+                                            <td width="100px" class="text-center">
+                                                <p class="btn btn-success btn-xs" data-toggle="modal" data-target="#hapusDokumentasi<?= $dt['id_dokumentasi'] ?>">Ubah</p>
+                                                <p class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapusDokumentasi<?= $dt['id_dokumentasi'] ?>">Hapus</p>
+                                            </td>
                                         </tr>
 
                                         <div class="modal fade" id="hapusDokumentasi<?= $dt['id_dokumentasi'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,12 +105,24 @@
         <!--/. container-fluid -->
     </section>
     <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
-
+<div class="modal fade in" id="photoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
 </div>
 
-
-<!-- /.content-wrapper -->
 <!-- Modal -->
 <div class="modal fade" id="tambahDokumentasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -156,5 +173,11 @@
         'autoWidth': false,
         'searching': false,
         'ordering': false
+    });
+
+    $('img').on('click', function() {
+        $('#photoModal').modal('show');
+        $('.modal-title').text($(this).attr('alt'));
+        $('.modal-body').html('<img src="' + $(this).attr('src') + '" style="width: 100%">');
     });
 </script>

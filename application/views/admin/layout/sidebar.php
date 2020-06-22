@@ -42,6 +42,12 @@
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/testimoni') ?>" class="nav-link" id="testimoni">
+                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <p>Testimonial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/produk') ?>" class="nav-link" id="produk">
                                     <i class="nav-icon fas fa-boxes"></i>
                                     <p>Produk</p>

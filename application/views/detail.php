@@ -148,7 +148,7 @@
                         location.reload();
                     })
                 } else {
-                    swal("Kesalahan!", "Qty produk belum ditambahkan", "error");
+                    Swal.fire("Kesalahan!", "Qty produk belum ditambahkan", "error");
                 }
             }
         });

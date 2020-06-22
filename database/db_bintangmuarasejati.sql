@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_bintangmuarasejati`
 --
+drop database if exists `db_bintangmuarasejati`;
+create database `db_bintangmuarasejati`;
+use `db_bintangmuarasejati`;
 
 -- --------------------------------------------------------
 

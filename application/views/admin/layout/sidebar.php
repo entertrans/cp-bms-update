@@ -31,25 +31,25 @@
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/slider') ?>" class="nav-link" id="slider">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-images"></i>
                                     <p>Slider</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/dokumentasi') ?>" class="nav-link" id="dokumentasi">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-camera"></i>
                                     <p>Dokumentasi</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/testimoni') ?>" class="nav-link" id="testimoni">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-comments"></i>
                                     <p>Testimonial</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/produk') ?>" class="nav-link" id="produk">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-cubes"></i>
                                     <p>Produk</p>
                                 </a>
                             </li>

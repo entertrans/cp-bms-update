@@ -7,32 +7,35 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 	}
+
 	function index()
 	{
 		$content = 'admin/login';
 		$this->load->view($content);
 	}
+
 	function auth()
 	{
 		$username = strip_tags(str_replace("'", "", $this->input->post('username')));
 		$password = strip_tags(str_replace("'", "", $this->input->post('password')));
 
-		$data = $this->db->get_where('tbl_admin', ['user'=>$username, 'password'=>md5($password)])->row_array();
-		
+		$data = $this->db->get_where('tbl_admin', ['user' => $username, 'password' => md5($password)]);
 
-		if ($data == true) {
+
+		if ($data->num_rows() > 0) {
 			$this->session->set_userdata('user', $username);
 			redirect('admin/beranda');
 		} else {
-			redirect('admin/login/gagallogin');
+			redirect('admin/login/failed');
 		}
 	}
-	function gagallogin()
+
+	function failed()
 	{
-		$url = base_url('admin/login');
-		echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert"><span class="fa fa-close"></span></button> Username Atau Password Salah</div>');
-		redirect($url);
+		$this->session->set_flashdata('msg', 'Username atau Password salah');
+		return $this->index();
 	}
+
 	function superadmin()
 	{
 		if ($this->session->userdata('id') != 'samsul' && $this->session->userdata('pw') != 'samsul') {
@@ -40,6 +43,7 @@ class Login extends CI_Controller
 		}
 		$this->load->view('admin/v_superadmin');
 	}
+
 	function logout()
 	{
 		$this->session->sess_destroy();

@@ -13,22 +13,6 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <!-- search -->
-                            <div class="row">
-                                <form class="form-horizontal col-md-4" method="post">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control form-control-sm" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-sm btn-outline-info" type="button"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="col-md-2 p-0">
-                                    <span class="btn btn-sm btn-outline-info" id="filter"><i class="fas fa-calendar-alt"></i> Filter</span>
-                                    <span class="btn btn-sm btn-outline-info" id="export"><i class="fas fa-download"></i> Export</span>
-                                </div>
-                            </div>
-                            <!-- /.seach -->
 
                             <table id="tbl_campaign" class="table table-bordered table-hover">
                                 <thead>
@@ -63,7 +47,6 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td class="text-center">
-                                                <p class="btn btn-success btn-xs" onclick="editSlide('<?= $dt['id_slider'] ?>')" style="cursor: pointer;">Ubah</p>
                                                 <p class="btn btn-danger btn-xs" onclick="removeSlide('<?= $dt['id_slider'] ?>')" style="cursor: pointer;">Hapus</p>
                                                 <!-- <span><a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapusSlider<?= $dt['id_slider'] ?>">Hapus</a> -->
                                                 <!-- <?php if ($dt['aktifkan'] == 1) {
@@ -182,7 +165,7 @@
     $('#tbl_campaign').DataTable({
         'responsive': true,
         'autoWidth': false,
-        'searching': false,
+        'searching': true,
         'ordering': false
     });
 

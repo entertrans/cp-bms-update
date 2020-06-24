@@ -53,12 +53,12 @@
                                     <p>Produk</p>
                                 </a>
                             </li>
-                            <!-- <li class="nav-item has-treeview">
-                                <a href="<?= site_url('admin/volunteer') ?>" class="nav-link" id="volunteer">
-                                    <i class="nav-icon fas fa-hand-holding-heart"></i>
-                                    <p>Volunteer</p>
+                            <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/kategori') ?>" class="nav-link" id="kategori">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>Kategori</p>
                                 </a>
-                            </li> -->
+                            </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/transaksi') ?>" class="nav-link" id="transaksi">
                                     <i class="nav-icon fas fa-hands-helping"></i>

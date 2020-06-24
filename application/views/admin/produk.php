@@ -45,12 +45,13 @@
                                 <tbody>
                                     <?php $no = 1;
                                     foreach ($produk->result_array() as $prod) :
-                                        $foto = str_replace('.mp4', '.jpg', $prod['video']);
+                                        // $foto = str_replace('.mp4', '.jpg', $prod['video']);
+                                        $foto = $this->db->get_where('tbl_produk_foto', ['id_produk' => $prod['id']])->row_array();
                                         $harga = $this->db->get_where('tbl_produk_harga', ['id_prod' => $prod['id']])->result_array(); ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td>
-                                                <img style="cursor: pointer;" class="img-fluid img-thumbnail" src="<?= base_url('assets/mockup/core/img/produk/' . $foto) ?>" alt="<?= $prod['nm_produk'] ?>" data-id="<?= $prod['id'] ?>" data-video="<?= $prod['video'] ?>">
+                                                <img style="cursor: pointer;" class="img-fluid img-thumbnail" src="<?= base_url('assets/mockup/core/img/produk/' . $foto['nm_foto']) ?>" alt="<?= $prod['nm_produk'] ?>" data-id="<?= $prod['id'] ?>" data-video="<?= $prod['video'] ?>">
                                             </td>
                                             <td>
                                                 <?= $prod['nm_produk'] ?>

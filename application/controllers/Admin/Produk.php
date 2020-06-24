@@ -66,4 +66,41 @@ class Produk extends CI_Controller
 		echo json_encode(['status' => true]);
 		exit;
 	}
+
+
+	public function media($id)
+	{
+		$content = 'admin/media';
+
+		$data['produk'] = $this->m_produk->find($id);
+
+		$this->load->view('admin/layout/header');
+		$this->load->view('admin/layout/navbar');
+		$this->load->view('admin/layout/sidebar');
+		$this->load->view($content, $data);
+	}
+
+	public function harga($id)
+	{
+		$content = 'admin/harga';
+
+		$data['produk'] = $this->m_produk->find($id);
+
+		$this->load->view('admin/layout/header');
+		$this->load->view('admin/layout/navbar');
+		$this->load->view('admin/layout/sidebar');
+		$this->load->view($content, $data);
+	}
+
+	public function simpan_harga()
+	{
+		$data = array(
+			'id_prod' => input('id_prod'),
+			'satuan' => input('satuan_produk'),
+			'harga' => input('harga_produk')
+		);
+		$this->db->insert('tbl_produk_harga', $data);
+		echo json_encode(['status' => true]);
+		exit;
+	}
 }

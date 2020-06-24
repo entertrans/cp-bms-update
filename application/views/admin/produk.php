@@ -64,8 +64,8 @@
                                                 } ?>
                                             </td>
                                             <td class="text-center">
-                                                <p class="btn btn-info btn-xs" onclick="opsiFoto('<?= $prod['id'] ?>', '<?= $prod['nm_produk'] ?>')" style="cursor: pointer;">Media</p>
-                                                <p class="btn btn-warning btn-xs" onclick="opsiHarga('<?= $prod['id'] ?>', '<?= $prod['nm_produk'] ?>')" style="cursor: pointer;">Harga</p>
+                                                <a href="<?= site_url('admin/produk/media/' . $prod['id']) ?>" class="btn btn-info btn-xs">Media</a>
+                                                <a href="<?= site_url('admin/produk/harga/' . $prod['id']) ?>" class="btn btn-warning btn-xs">Harga</a>
                                             </td>
                                             <td class="text-center">
                                                 <p class="btn btn-success btn-xs" onclick="editProduk('<?= $prod['id'] ?>')" style="cursor: pointer;">Ubah</p>

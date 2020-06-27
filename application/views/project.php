@@ -46,8 +46,8 @@
                             </div>
                         </div>
                         <div class="projects-content">
-                            <h3 class="category">Project PT.abc</h3>
-                            <h3 class="tittle" style="text-decoration: none;">Kepulauan Seribu</h3>
+                            <h3 class="category"><?= $dt['pr_title'] ?></h3>
+                            <h3 class="tittle" style="text-decoration: none;"><?= $dt['pr_desc'] ?></h3>
                         </div>
                     </div>
                 </div>

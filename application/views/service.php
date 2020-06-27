@@ -1,3 +1,11 @@
+<style>
+    .page-header{
+        background-image: url(<?= base_url('assets/mockup/core/img/service.jpg') ?>);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
 <section class="page-header padding">
     <div class="container">
         <div class="page-content text-center">
@@ -120,19 +128,19 @@
                 var html = '';
                 for (var i = 0; i < data.length; i++) {
                     html += `<div class="col-lg-4 col-sm-6 sm-padding pb-4">
-                                <div class="blog-item box-shadow">
-                                    <div class="blog-thumb">
-                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="` + data[i].nm_produk + `" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') ?>` + data[i].nm_foto + `);background-repeat: no-repeat;background-size: cover;background-position: center;">
-                                        <div class="middle">
-                                            <div class="btn btn-outline-primary btn-lg view" data-id="` + data[i].id + `"><i class="fa fa-fw fa-eye"></i></div>
-                                        </div>
-                                    </div>
-                                    <div class="blog-content">
-                                        <h3>` + data[i].nm_produk + `</h3>
-                                        <p>[deskripsi-singkat]</p>
-                                    </div>
-                                </div>
-                            </div>`;
+                    <div class="blog-item box-shadow">
+                    <div class="blog-thumb">
+                    <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="` + data[i].nm_produk + `" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') ?>` + data[i].nm_foto + `);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                    <div class="middle">
+                    <div class="btn btn-outline-primary btn-lg view" data-id="` + data[i].id + `"><i class="fa fa-fw fa-eye"></i></div>
+                    </div>
+                    </div>
+                    <div class="blog-content">
+                    <h3>` + data[i].nm_produk + `</h3>
+                    <p>[deskripsi-singkat]</p>
+                    </div>
+                    </div>
+                    </div>`;
                 }
 
                 $('.material').html(html);
@@ -151,19 +159,19 @@
                 var html = '';
                 for (var i = 0; i < data.length; i++) {
                     html += `<div class="col-lg-4 col-sm-6 sm-padding pb-4">
-                                <div class="blog-item box-shadow">
-                                    <div class="blog-thumb">
-                                        <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="` + data[i].nm_produk + `" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') ?>` + data[i].nm_foto + `);background-repeat: no-repeat;background-size: cover;background-position: center;">
-                                        <div class="middle">
-                                            <div class="btn btn-outline-primary btn-lg view" data-id="` + data[i].id + `"><i class="fa fa-fw fa-eye"></i></div>
-                                        </div>
-                                    </div>
-                                    <div class="blog-content">
-                                        <h3>` + data[i].nm_produk + `</h3>
-                                        <p>[deskripsi-singkat]</p>
-                                    </div>
-                                </div>
-                            </div>`;
+                    <div class="blog-item box-shadow">
+                    <div class="blog-thumb">
+                    <img src="<?= base_url('assets/mockup/core/img/border.png') ?>" alt="` + data[i].nm_produk + `" style=" width: 400px; height: 250px;background-image: url(<?= base_url('assets/mockup/core/img/produk/') ?>` + data[i].nm_foto + `);background-repeat: no-repeat;background-size: cover;background-position: center;">
+                    <div class="middle">
+                    <div class="btn btn-outline-primary btn-lg view" data-id="` + data[i].id + `"><i class="fa fa-fw fa-eye"></i></div>
+                    </div>
+                    </div>
+                    <div class="blog-content">
+                    <h3>` + data[i].nm_produk + `</h3>
+                    <p>[deskripsi-singkat]</p>
+                    </div>
+                    </div>
+                    </div>`;
                 }
 
                 $('.konstruksi').html(html);

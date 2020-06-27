@@ -13,21 +13,6 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <!-- search -->
-                            <div class="row">
-                                <form class="form-horizontal col-md-4" method="post" action="#">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control form-control-sm" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-sm btn-outline-info" type="button"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="col-md-2 p-0">
-                                    <span class="btn btn-sm btn-outline-info" id="export"><i class="fas fa-download"></i> Export</span>
-                                </div>
-                            </div>
-                            <!-- /.seach -->
 
                             <table id="tbl_campaign" class="table table-bordered table-hover">
                                 <thead>
@@ -171,7 +156,7 @@
     $('#tbl_campaign').DataTable({
         'responsive': true,
         'autoWidth': false,
-        'searching': false,
+        'searching': true,
         'ordering': false
     });
 </script>

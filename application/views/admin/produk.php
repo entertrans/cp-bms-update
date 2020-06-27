@@ -14,7 +14,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <!-- search -->
-                            <div class="row">
+                            <!-- <div class="row">
                                 <form class="form-horizontal col-md-4" method="post" action="#">
                                     <div class="input-group">
                                         <input type="text" class="form-control form-control-sm" placeholder="Cari nama produk" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -27,7 +27,7 @@
                                     <span class="btn btn-sm btn-outline-info" id="filter"><i class="fas fa-calendar-alt"></i> Filter</span>
                                     <span class="btn btn-sm btn-outline-info" id="export"><i class="fas fa-download"></i> Export</span>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- /.seach -->
 
                             <table id="tbl_campaign" class="table table-bordered table-hover">

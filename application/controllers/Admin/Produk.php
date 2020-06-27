@@ -85,6 +85,7 @@ class Produk extends CI_Controller
 		$content = 'admin/harga';
 
 		$data['produk'] = $this->m_produk->find($id);
+		$data['harga'] = $this->db->get_where('tbl_produk_harga', ['id_prod' => $id]);
 
 		$this->load->view('admin/layout/header');
 		$this->load->view('admin/layout/navbar');
@@ -99,13 +100,32 @@ class Produk extends CI_Controller
 			'satuan' => input('satuan_produk'),
 			'harga' => input('harga_produk')
 		);
-		$this->db->insert('tbl_produk_harga', $data);
+		$this->db->update('tbl_produk_harga', $data);
+		echo json_encode(['status' => true]);
+		exit;
+	}
+
+	public function ubah_harga()
+	{
+		$data = array(
+			'satuan' => input('satuan_produk'),
+			'harga' => input('harga_produk')
+		);
+		$this->db->update('tbl_produk_harga', $data, ['id' => input('id_prod')]);
+		echo json_encode(['status' => true]);
+		exit;
+	}
+
+	public function hapus_harga($id)
+	{
+		$this->db->delete('tbl_produk_harga', ['id' => $id]);
 		echo json_encode(['status' => true]);
 		exit;
 	}
 
 	public function simpan_media()
 	{
+		$filename = '';
 		$ext = $_FILES['media_produk']['type'];
 		$exp = explode('/', $ext);
 		// $get_prod = $this->db->get_where('tbl_produk', ['id' => input('id_prod')])->row_array();
@@ -113,11 +133,11 @@ class Produk extends CI_Controller
 		if ($exp[0] == 'image') {
 			$config['upload_path'] = "./assets/mockup/core/img/produk";
 			$config['allowed_types'] = 'jpg|jpeg';
-			$config['encrypt_name'] = false;
+			// $config['encrypt_name'] = true;
 		} else {
 			$config['upload_path'] = "./assets/mockup/core/video";
 			$config['allowed_types'] = 'mp4';
-			$config['encrypt_name'] = false;
+			// $config['encrypt_name'] = true;
 			$config['max_size'] = '3500000'; // 3,5 MB
 		}
 
@@ -125,9 +145,11 @@ class Produk extends CI_Controller
 		$res_dt = $dt->row_array();
 		$file = explode('.', $res_dt['nm_foto']);
 		if ($dt->num_rows() > 0) {
-			$config['file_name'] = $file[0] . '.' . $exp[1];
+			$filename = $file[0] . '.' . $exp[1];
+			$config['encrypt_name'] = false;
+			$config['file_name'] = $filename;
 		} else {
-			$config['file_name'] = strtolower(str_replace(' ', '-', input('nm_produk'))) . '.' . $exp[1];
+			$config['encrypt_name'] = true;
 		}
 
 		$this->load->library('upload', $config);

@@ -49,8 +49,8 @@
                  <h3 class="mb-0">[logo]</h3>
              </div>
              <div class="float-right">
-                 <h3 class="mb-0">Invoice #<?= $invoice ?></h3>
-                 Date: <?= $date ?>
+                 <!-- <h3 class="mb-0">Invoice #<?= $invoice ?></h3>
+                 Date: <?= $date ?> -->
              </div>
          </div>
          <div class="card-body">
@@ -65,17 +65,17 @@
                  </div>
                  <div class="col-sm-6 ">
                      <h5 class="mb-3">To:</h5>
-                     <h3 class="text-dark mb-1"><?= $name ?></h3>
+                     <!-- <h3 class="text-dark mb-1"><?= $name ?></h3>
                      <div><?= $alamat ?></div>
-                     <div>Email: <?= $email ?></div>
+                     <div>Email: <?= $email ?></div> -->
                      <div>Phone: +91 9897 989 989</div>
                  </div>
              </div>
              <div class="row mb-4">
                  <div class="col-sm-6 ">
                      <h5 class="mb-3">Pembayaran:</h5>
-                     <h3 class="text-dark mb-1"><?= $payment == 'transfer' ? 'Bank Transfer' : 'Cash On Delivery' ?></h3>
-                     <div><?= $payment == 'transfer' ? $rek . ' a/n ' . $an : '' ?></div>
+                     <!-- <h3 class="text-dark mb-1"><?= $payment == 'transfer' ? 'Bank Transfer' : 'Cash On Delivery' ?></h3>
+                     <div><?= $payment == 'transfer' ? $rek . ' a/n ' . $an : '' ?></div> -->
                  </div>
              </div>
              <div class="table-responsive-sm">
@@ -89,7 +89,7 @@
                          </tr>
                      </thead>
                      <tbody>
-                         <?php $cart = $this->cart->contents();
+                         <!-- <?php $cart = $this->cart->contents();
                          foreach($cart as $item) : ?>
                          <tr>
                              <td><?= $item['name'] ?></td>
@@ -97,7 +97,7 @@
                              <td><?= number_format($item['price'], 0, ',', '.') ?></td>
                              <td><?= number_format($item['qty'] * $item['price'], 0, ',', '.') ?></td>
                          </tr>
-                         <?php endforeach; ?>
+                         <?php endforeach; ?> -->
                      </tbody>
                  </table>
              </div>
@@ -111,7 +111,7 @@
                                  <td class="left">
                                      <strong class="text-dark">Total</strong> </td>
                                  <td class="right">
-                                     <strong class="text-dark"><?= number_format($this->cart->total(), 0, ',', '.') ?></strong>
+                                     <!-- <strong class="text-dark"><?= number_format($this->cart->total(), 0, ',', '.') ?></strong> -->
                                  </td>
                              </tr>
                          </tbody>

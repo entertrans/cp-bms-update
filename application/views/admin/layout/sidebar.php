@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-        <img src="<?= base_url('assets/admin/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?= base_url('assets/mockup/core/img/logo.jpeg')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">BM-Admin</span>
     </a>
 
@@ -31,28 +31,34 @@
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/slider') ?>" class="nav-link" id="slider">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-images"></i>
                                     <p>Slider</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/dokumentasi') ?>" class="nav-link" id="dokumentasi">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-camera"></i>
                                     <p>Dokumentasi</p>
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/testimoni') ?>" class="nav-link" id="testimoni">
+                                    <i class="nav-icon fas fa-comments"></i>
+                                    <p>Testimonial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/produk') ?>" class="nav-link" id="produk">
-                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <i class="nav-icon fas fa-cubes"></i>
                                     <p>Produk</p>
                                 </a>
                             </li>
-                            <!-- <li class="nav-item has-treeview">
-                                <a href="<?= site_url('admin/volunteer') ?>" class="nav-link" id="volunteer">
-                                    <i class="nav-icon fas fa-hand-holding-heart"></i>
-                                    <p>Volunteer</p>
+                            <li class="nav-item has-treeview">
+                                <a href="<?= site_url('admin/kategori') ?>" class="nav-link" id="kategori">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>Kategori</p>
                                 </a>
-                            </li> -->
+                            </li>
                             <li class="nav-item has-treeview">
                                 <a href="<?= site_url('admin/transaksi') ?>" class="nav-link" id="transaksi">
                                     <i class="nav-icon fas fa-hands-helping"></i>
@@ -71,7 +77,7 @@
                                     <p>Acara</p>
                                 </a>
                             </li> -->
-                            <li class="nav-item has-treeview">
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="." class="nav-link" id="setting">
                                     <i class="nav-icon fas fa-tools"></i>
                                     <p>
@@ -86,12 +92,12 @@
                                             <p>Kategori</p>
                                         </a>
                                     </li>
-                                    <!-- <li class="nav-item">
+                                    <li class="nav-item">
                                         <a href="<?= site_url('admin/setting/tags') ?>" class="nav-link" id="tags">
                                             <i class="nav-icon far fa-circle"></i>
                                             <p>Tags</p>
                                         </a>
-                                    </li> -->
+                                    </li>
                                     <li class="nav-item">
                                         <a href="<?= site_url('admin/setting/website') ?>" class="nav-link" id="website">
                                             <i class="nav-icon far fa-circle"></i>
@@ -99,7 +105,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->

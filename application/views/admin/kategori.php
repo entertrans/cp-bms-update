@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="btn btn-sm btn-primary">Tambah Data</span>
+                                <span class="btn btn-sm btn-primary" onclick="tambah()">Tambah Data</span>
                             </h3>
                         </div>
                         <!-- /.card-header -->
@@ -29,26 +29,19 @@
                             <table id="tbl_campaign" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th width="5%">#</th>
                                         <th>Nama Kategori</th>
-                                        <th>Slug</th>
-                                        <th>Deskripsi</th>
-                                        <!-- <th>Digunakan</th> -->
-                                        <th class="text-center">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php for ($i = 1; $i <= 100; $i++) { ?>
+                                    <?php $no = 1;
+                                    foreach ($list->result_array() as $li) { ?>
                                         <tr>
-                                            <td><?= $i ?></td>
-                                            <td>Anonymous
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $li['nm_desc'] ?>
                                                 <div class="dropdown-divider"></div>
-                                                <span><a href="#">Sunting</a> | <a href="#" class="text-danger">Hapus</a> | <a href="#">Tampil</a></span>
+                                                <span><a href="#" onclick="ubah('<?= $li['id_desc'] ?>')">Sunting</a> | <a href="#" class="text-danger" onclick="hapus('<?= $li['id_desc'] ?>')">Hapus</a></span>
                                             </td>
-                                            <td><?= text_slug('Lorem Ipsum Dolor') ?></td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                                            <!-- <td class="text-center"><?= rand(0, 100) ?></td> -->
-                                            <td class="text-center"><?= $i % 2 == 0 ? '<p class="badge badge-success">Enable</p>' : '<p class="badge badge-secondary">Disable</p>' ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -68,13 +61,125 @@
 </div>
 <!-- /.content-wrapper -->
 
+<div class="modal fade in" id="addModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Data Kategori</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form_kategori" autocomplete="off">
+                    <input type="hidden" class="form-control" name="id_kategori" id="id_kategori">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nama Kategori</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="kategori" id="kategori">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10 offset-2">
+                            <span class="btn btn-success" onclick="save()">Simpan</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php $this->load->view('admin/layout/footer'); ?>
 
 <script>
-    $('#tbl_campaign').DataTable({
-        'responsive': true,
-        'autoWidth': false,
-        'searching': false,
-        'ordering': false
+    var method = '';
+    $(document).ready(function() {
+        $('#tbl_campaign').DataTable({
+            'responsive': true,
+            'autoWidth': false,
+            'searching': false,
+            'ordering': false
+        });
     });
+
+    function tambah() {
+        method = 'add';
+        $('#addModal').modal('show');
+        $('#form_kategori')[0].reset();
+    }
+
+    function ubah(id) {
+        method = 'update';
+        $('#addModal').modal('show');
+        $('#form_kategori')[0].reset();
+
+        $.ajax({
+            url: "<?= site_url('admin/kategori/edit/') ?>" + id,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data) {
+                $('[name="id_kategori"]').val(data.id_desc);
+                $('[name="kategori"]').val(data.nm_desc);
+            }
+        });
+    }
+
+    function save() {
+        var url = '';
+        if (method == 'add') url = "<?= site_url('admin/kategori/add') ?>";
+        else url = "<?= site_url('admin/kategori/update') ?>";
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            dataType: "JSON",
+            data: $('#form_kategori').serialize(),
+            success: function(data) {
+                if (data.status == true) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ketegori berhasil disimpan',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(function() {
+                        location.reload();
+                    })
+                }
+            }
+        });
+    }
+
+    function hapus(id) {
+        Swal.fire({
+            title: 'Anda yakin ingin menghapus data ini?',
+            text: "Data yang terhapus tidak dapat dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "<?= site_url('admin/kategori/delete/') ?>" + id,
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function(data) {
+                        if (data.status == true) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Kategori berhasil dihapus',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(function() {
+                                location.reload();
+                            })
+                        }
+                    }
+                });
+            }
+        })
+    }
 </script>

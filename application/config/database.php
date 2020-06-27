@@ -73,13 +73,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+$ci =& get_instance();
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_bintangmuarasejati',
-	'dbdriver' => 'mysqli',
+	'hostname' => $ci->config->item('hostname'),
+	'username' => $ci->config->item('username'),
+	'password' => $ci->config->item('password'),
+	'database' => $ci->config->item('database'),
+	'dbdriver' => $ci->config->item('dbdriver'),
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -90,7 +92,7 @@ $db['default'] = array(
 	'swap_pre' => '',
 	'encrypt' => FALSE,
 	'compress' => FALSE,
-	'stricton' => FALSE,
+	'stricton' => TRUE,
 	'failover' => array(),
 	'save_queries' => TRUE
 );

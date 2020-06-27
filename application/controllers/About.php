@@ -20,10 +20,11 @@ class About extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['testimonial'] = $this->db->get('tbl_testimonial')->result_array();
 		$this->load->view('mockup/layout/core/header');
 		$this->load->view('mockup/layout/core/css');
 		$this->load->view('mockup/layout/core/topbar');
-		$this->load->view('about-company');
+		$this->load->view('about-company',$data);
 		$this->load->view('mockup/layout/core/footer');
 	}
 }

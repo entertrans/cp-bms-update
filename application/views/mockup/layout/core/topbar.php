@@ -41,7 +41,7 @@
                                                 <td class="text-left"><?= $item['name'] ?></td>
                                                 <td class="text-right"><?= $item['qty'] ?></td>
                                                 <td class="text-right"><?= $item['options']['Size'] ?></td>
-                                                <td class="text-right"><?= number_format($item['price'], 0, ',', '.') ?></td>
+                                                <td class="text-right"><?= number_format($item['subtotal'], 0, ',', '.') ?></td>
                                                 <td class="text-center"><span onclick="cartRemove('<?= $item['rowid'] ?>');" title="Remove" class="text-danger" style="cursor: pointer;"><i class="fa fa-fw fa-times"></i></span></td>
                                             </tr>
                                         <?php endforeach; ?>

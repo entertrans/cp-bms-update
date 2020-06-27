@@ -3,7 +3,7 @@
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.0.4
+        <b>Version</b> 1.0
     </div>
 </footer>
 </div>
@@ -47,13 +47,15 @@
 $menu = $this->uri->segment(2);
 $submenu = $this->uri->segment(3);
 
-if ($submenu != '') {
-    echo "<script>$('#setting').parents().addClass('menu-open')</script>";
-    echo "<script>$('#setting').addClass('active')</script>";
-    echo "<script>$('#" . strtolower($submenu) . "').addClass('active')</script>";
-} else {
-    echo "<script>$('#" . strtolower($menu) . "').addClass('active')</script>";
-}
+// if ($submenu != '') {
+//     echo "<script>$('#setting').parents().addClass('menu-open')</script>";
+//     echo "<script>$('#setting').addClass('active')</script>";
+//     echo "<script>$('#" . strtolower($submenu) . "').addClass('active')</script>";
+// } else {
+//     echo "<script>$('#" . strtolower($menu) . "').addClass('active')</script>";
+// }
+
+echo "<script>$('#" . strtolower($menu) . "').addClass('active')</script>";
 ?>
 
 </body>
